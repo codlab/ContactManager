@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dir=`pwd`
+
+cd $ANDROID_HOME/tools
+
+( ./emulator -avd "$1" > /dev/null ) &
+
+cd $dir
