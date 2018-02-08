@@ -21,7 +21,7 @@ import {
 //when using list view library
 //import NativeListview from 'react-native-native-listview';
 
-import Contacts from "./contacts/Contacts";
+import contacts from "./contacts/Contacts";
 import styles from "./Styles";
 
 type Props = {};
@@ -38,11 +38,18 @@ export default class MainList extends Component<Props> {
   constructor(props) {
     super(props);
 
-    this.contacts = new Contacts();
+    this.contacts = contacts;
   }
-  
+
   componentDidMount() {
-    this.contacts.list()
+    this.contacts.cache()
+    .then(contacts => {
+      this.setState({
+        contacts: contacts
+      });
+
+      return this.contacts.list()
+    })
     .then(contacts => {
       this.setState({
         contacts: contacts

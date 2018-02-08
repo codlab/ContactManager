@@ -1,6 +1,12 @@
 import ContactsAPI from "react-native-contacts";
 
-export default class Contacts {
+class Contacts {
+
+  cache() {
+    return new Promise( (resolve, reject) => {
+      resolve(this._cache);
+    });
+  }
 
   list() {
     return new Promise( (resolve, reject) => {
@@ -11,6 +17,7 @@ export default class Contacts {
           } else {
 
             contacts = contacts.filter(contact => this.isValid(contact));
+            this._cache = contacts;
             resolve(contacts);
           }
         });
@@ -27,3 +34,5 @@ export default class Contacts {
     return true;
   }
 }
+
+export default new Contacts();

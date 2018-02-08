@@ -10,6 +10,7 @@ npm install --save react-native-contacts
 npm install --save https://github.com/codlab/react-native-lazyload
 npm install --save react-native-material-ui
 npm install --save react-native-vector-icons
+npm install --save eventemitter2
 ```
 
 # Linking

@@ -11,6 +11,7 @@ import {
   StatusBar
 } from 'react-native';
 import { Toolbar, ThemeProvider } from "react-native-material-ui";
+import Device from 'react-native-device-detection';
 
 import MainList from './MainList';
 import styles from "./Styles";
@@ -32,8 +33,7 @@ export default class MainScreen extends Component<Props> {
   }
 
   isTablet() {
-    //TODO add logic to detect tablet devices
-    return true;
+    return Device.isTablet;
   }
 
   render() {
