@@ -1,0 +1,9 @@
+rootProject.name = 'ContactManager'
+include ':react-native-native-listview'
+project(':react-native-native-listview').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-native-listview/android')
+include ':react-native-native-listview'
+project(':react-native-native-listview').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-native-listview/android')
+include ':react-native-contacts'
+project(':react-native-contacts').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-contacts/android')
+
+include ':app'
