@@ -12,6 +12,12 @@ npm install --save react-native-material-ui
 npm install --save react-native-vector-icons
 ```
 
+# Linking
+
+```
+react-native link
+```
+
 # Bugs & TODO list
 
 - When checking out the Contact permission, the app receives a [] as callback. (Permissions granted in AndroidManifest but disabled in system)
