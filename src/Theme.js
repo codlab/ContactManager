@@ -12,4 +12,4 @@ const UI_THEME = {
   }
 };
 
-exports default UI_THEME;
+export default UI_THEME;
