@@ -95,8 +95,9 @@ export default class MainList extends Component<Props> {
               <View key={i} style={styles.view}>
                 <LazyloadView
                   host="lazyload-list"
-                  style={styles.contact}>
-                  <Text style={styles.welcome}>{contact.givenName}</Text>
+                  style={styles.contactCell}>
+                  <Text style={styles.contactText}>{contact.givenName} {contact.familyName}</Text>
+                  <Text style={styles.contactSubText}>{contact.jobTitle}</Text>
                 </LazyloadView>
               </View>
             )

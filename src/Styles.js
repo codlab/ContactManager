@@ -22,5 +22,15 @@ export default StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+  },
+  contactCell: {
+    textAlign: 'left',
+    margin: 16
+  },
+  contactText: {
+    fontSize: 16
+  },
+  contactSubText: {
+    fontSize: 8
   }
 });
