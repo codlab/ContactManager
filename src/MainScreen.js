@@ -26,16 +26,21 @@ export default class MainScreen extends Component<Props> {
   empty = <View />;
 
   onContactClick(contact) {
-    console.warn(contact);
-
     this.setState({
       contact: contact
     })
   }
 
+  isTablet() {
+    //TODO add logic to detect tablet devices
+    return true;
+  }
+
   render() {
     const { contact } = this.state;
     const has_contact = contact != null;
+    const is_tablet = this.isTablet();
+
 
     return (
       <ThemeProvider key="one" uiTheme={Theme} children={this.empty}>
@@ -43,15 +48,18 @@ export default class MainScreen extends Component<Props> {
         <View style={{ backgroundColor: Theme.palette.primaryColor, height: 24 }} />
         <Toolbar
           leftElement={has_contact ? "arrow-back" : ""}
-          onLeftElementPress={() => {}}
+          onLeftElementPress={() => this.onContactClick(null)}
           centerElement="ContactManager"/>
         {
-          has_contact && (
+          (has_contact && is_tablet) && (
             <View style={styles.mainScreenContainer}>
               <MainList style={styles.mainScreenHalfScreen} onContactClick={(c) => this.onContactClick(c)}/>
               <Text style={styles.mainScreenHalfScreen}>{contact.jobTitle}</Text>
-            </View>
-          )
+            </View>)
+        }
+
+        {
+          (has_contact && !is_tablet) && <Text style={styles.mainScreenContainer}>{contact.jobTitle}</Text>
         }
 
         {
