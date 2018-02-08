@@ -7,9 +7,11 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   ScrollView,
+  TouchableHighlight,
   Text,
   View
 } from 'react-native';
+import PropTypes from "prop-types";
 
 import {
     LazyloadScrollView,
@@ -25,6 +27,10 @@ import styles from "./Styles";
 type Props = {};
 export default class MainList extends Component<Props> {
 
+  static propTypes = {
+    onContactClick: PropTypes.func.isRequired
+  }
+
   state = {
     contacts: null
   };
@@ -34,7 +40,7 @@ export default class MainList extends Component<Props> {
 
     this.contacts = new Contacts();
   }
-
+  
   componentDidMount() {
     this.contacts.list()
     .then(contacts => {
@@ -92,14 +98,14 @@ export default class MainList extends Component<Props> {
                 contentContainerStyle={styles.content}
                 name="lazyload-list">
           { contacts && contacts.map((contact,i) =>
-              <View key={i} style={styles.view}>
+              <TouchableHighlight key={i} style={styles.view} onPress={() => this.props.onContactClick(contact)}>
                 <LazyloadView
                   host="lazyload-list"
                   style={styles.contactCell}>
                   <Text style={styles.contactText}>{contact.givenName} {contact.familyName}</Text>
                   <Text style={styles.contactSubText}>{contact.jobTitle}</Text>
                 </LazyloadView>
-              </View>
+              </TouchableHighlight>
             )
           }
         </LazyloadScrollView>

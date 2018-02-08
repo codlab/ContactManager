@@ -23,8 +23,17 @@ export default StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+
+  mainScreenContainer: {
+    flex: 1,
+    flexDirection: "row"
+  },
+  mainScreenHalfScreen: {
+    width: "50%",
+    height: "100%"
+  },
+
   contactCell: {
-    textAlign: 'left',
     margin: 16
   },
   contactText: {

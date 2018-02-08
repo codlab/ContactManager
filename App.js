@@ -5,13 +5,13 @@
  */
 
 import React, { Component } from 'react';
-import MainList from './src/MainList';
+import MainScreen from './src/MainScreen';
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <MainList />
+      <MainScreen />
     );
   }
 }
